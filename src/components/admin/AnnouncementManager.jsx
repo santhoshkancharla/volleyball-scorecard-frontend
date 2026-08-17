@@ -54,7 +54,7 @@ const AnnouncementManager = () => {
              <Send className="w-5 h-5 text-blue-600" /> Broadcast Update
            </h3>
          </div>
-         <div className="p-6 bg-slate-50">
+         <div className="p-4 sm:p-6 bg-slate-50">
            {error && <div className="text-red-600 text-sm font-bold mb-4">{error}</div>}
            {success && <div className="text-green-700 text-sm font-bold mb-4">{success}</div>}
            <form onSubmit={handleCreate} className="space-y-4 max-w-2xl">
@@ -79,11 +79,11 @@ const AnnouncementManager = () => {
         </h3>
         <div className="divide-y divide-slate-100">
           {announcements.map(a => (
-            <div key={a.id} className="p-4 flex gap-4 items-start hover:bg-slate-50 relative group">
-               <div className="w-10 h-10 rounded bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                  <Megaphone className="w-5 h-5" />
+            <div key={a.id} className="p-3 sm:p-4 flex gap-3 sm:gap-4 items-start hover:bg-slate-50 relative group">
+               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                  <Megaphone className="w-4 h-4 sm:w-5 sm:h-5" />
                </div>
-               <div className="flex-1 pr-12">
+               <div className="flex-1 pr-8 sm:pr-12">
                  <h4 className="font-bold text-slate-900 mb-1">{a.title}</h4>
                  <p className="text-sm text-slate-600 font-medium mb-2 leading-relaxed">{a.description}</p>
                  <span className="text-xs text-slate-400 font-bold">{new Date(a.created_at).toLocaleString()}</span>

@@ -50,13 +50,13 @@ const SettingsManager = () => {
              <Settings className="w-5 h-5 text-blue-600" /> Global League Configuration
            </h3>
          </div>
-         <div className="p-6 md:p-8 bg-slate-50">
+         <div className="p-4 sm:p-6 md:p-8 bg-slate-50">
            {error && <div className="bg-red-50 text-red-600 p-4 rounded text-sm font-bold mb-6 border border-red-200">{error}</div>}
            {success && <div className="bg-green-50 text-green-700 p-4 rounded text-sm font-bold mb-6 border border-green-200">{success}</div>}
            
            <form onSubmit={handleSave} className="space-y-6 max-w-2xl">
              
-             <div className="space-y-4 bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+             <div className="space-y-4 bg-white p-4 sm:p-6 rounded-lg border border-slate-200 shadow-sm">
                 <div>
                    <label className="text-xs font-black text-slate-700 uppercase mb-2 flex items-center gap-2"><Globe className="w-4 h-4 text-slate-400" /> Official League Name</label>
                    <input type="text" className="w-full border border-slate-300 rounded p-3 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none text-sm font-semibold text-slate-900" 

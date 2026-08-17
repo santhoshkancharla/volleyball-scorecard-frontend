@@ -37,7 +37,7 @@ const Home = () => {
     <div className="space-y-6 animate-in fade-in duration-500">
       
       {/* Volleyball Themed League Banner */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 rounded-xl shadow-lg border-b-4 border-b-blue-500 flex flex-col md:flex-row items-center justify-between p-6 md:px-12 md:py-8 overflow-hidden relative">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 rounded-xl shadow-lg border-b-4 border-b-blue-500 flex flex-col md:flex-row items-center justify-between p-5 sm:p-6 md:px-12 md:py-8 overflow-hidden relative">
          {/* Abstract Court Lines Background Pattern */}
          <div className="absolute inset-0 opacity-10 pointer-events-none">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -50,15 +50,15 @@ const Home = () => {
             </svg>
          </div>
 
-         <div className="flex items-center gap-6 relative z-10 w-full md:w-auto mb-6 md:mb-0">
-            <div className="w-20 h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur rounded-full flex items-center justify-center border-2 border-white/20 shadow-inner shrink-0">
-               <Trophy className="w-10 h-10 md:w-12 md:h-12 text-yellow-400" />
+         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 relative z-10 w-full md:w-auto mb-6 md:mb-0">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur rounded-full flex items-center justify-center border-2 border-white/20 shadow-inner shrink-0">
+               <Trophy className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-400" />
             </div>
             <div>
                <h3 className="text-blue-200 font-bold uppercase tracking-widest text-xs md:text-sm mb-1 flex items-center gap-2">
                   <Flame className="w-4 h-4 text-orange-400" /> {settings?.organizer || 'Official Competition'}
                </h3>
-               <h1 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-md">
+               <h1 className="text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none mb-2 drop-shadow-md break-words">
                   {settings?.league_name || 'Premier Volley League'}
                </h1>
                <div className="flex flex-wrap items-center gap-4 text-sm md:text-base font-bold text-white/90">
@@ -87,7 +87,7 @@ const Home = () => {
            <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950 via-slate-900/95 to-transparent"></div>
         </div>
         
-        <div className="relative z-10 p-8 md:p-12 flex flex-col justify-end md:justify-center w-full md:w-2/3 lg:w-3/4">
+        <div className="relative z-10 p-5 sm:p-8 md:p-12 flex flex-col justify-end md:justify-center w-full md:w-2/3 lg:w-3/4">
            {featuredMatch ? (
               <div className="animate-in slide-in-from-left-4 duration-700 fade-in">
                  <span className="bg-red-600 text-white text-xs font-black px-4 py-1.5 uppercase tracking-[0.2em] rounded-sm w-fit mb-6 flex items-center gap-2 shadow-lg shadow-red-600/30">
@@ -95,13 +95,13 @@ const Home = () => {
                     LIVE COURT ACTION
                  </span>
                  <div className="flex flex-col gap-2">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tighter uppercase text-white drop-shadow-xl border-l-4 border-blue-500 pl-4">
-                       {featuredMatch.team1_name}
-                    </h1>
-                    <h2 className="text-2xl font-black uppercase tracking-widest text-slate-500 pl-4 my-2">VS</h2>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tighter uppercase text-white drop-shadow-xl border-l-4 border-red-500 pl-4">
-                       {featuredMatch.team2_name}
-                    </h1>
+                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tighter uppercase text-white drop-shadow-xl border-l-4 border-blue-500 pl-4">
+                        {featuredMatch.team1_name}
+                     </h1>
+                     <h2 className="text-xl sm:text-2xl font-black uppercase tracking-widest text-slate-500 pl-4 my-2">VS</h2>
+                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tighter uppercase text-white drop-shadow-xl border-l-4 border-red-500 pl-4">
+                        {featuredMatch.team2_name}
+                     </h1>
                  </div>
                  <p className="text-blue-200 text-lg md:text-xl font-bold mt-8 mb-8 max-w-xl border-t border-slate-700 pt-6">
                     Feel the intensity. Catch every spike, block, and point instantly on the Live Center.
@@ -110,9 +110,9 @@ const Home = () => {
            ) : (
               <div className="animate-in slide-in-from-bottom-4 duration-700 fade-in">
                  <span className="bg-blue-600 text-white text-[10px] font-black px-3 py-1 uppercase tracking-[0.2em] rounded-sm w-fit mb-6 border border-blue-500 shadow-lg shadow-blue-600/20 block">Official Broadcast</span>
-                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[0.9] tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400 drop-shadow-2xl">
-                    COMMAND<br/>THE COURT
-                 </h1>
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[0.9] tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400 drop-shadow-2xl">
+                     COMMAND<br/>THE COURT
+                  </h1>
                  <p className="text-slate-300 text-lg md:text-xl font-medium mb-10 max-w-xl leading-relaxed">
                     Track the biggest plays, live score updates, and exclusive tournament analytics seamlessly across the entire league.
                  </p>
