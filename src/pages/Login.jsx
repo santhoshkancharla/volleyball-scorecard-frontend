@@ -26,7 +26,11 @@ const Login = () => {
         navigate('/');
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'Invalid username or password.');
+      if (!err.response) {
+        setError('Network Error: Unable to reach the server. Please check your internet connection or backend API URL.');
+      } else {
+        setError(err.response.data?.message || 'Invalid username or password.');
+      }
     } finally {
       setLoading(false);
     }
