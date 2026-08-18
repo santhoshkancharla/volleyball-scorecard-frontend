@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import api from '../../utils/api';
-import { Plus, List, Save, Activity, CheckCircle, Wifi, WifiOff, Loader2 } from 'lucide-react';
+import { Plus, List, Save, Activity, CheckCircle, Wifi, WifiOff, Loader2, Trash2 } from 'lucide-react';
 
 const MatchManager = () => {
   const [matches, setMatches] = useState([]);
@@ -49,6 +49,19 @@ const MatchManager = () => {
       fetchData();
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to create match.');
+    }
+  };
+
+  const handleDeleteMatch = async (matchId) => {
+    if (!window.confirm("Are you sure you want to delete this match?")) return;
+    try {
+      await api.delete(`/api/matches/${matchId}`, axiosConfig);
+      setSuccess("Match deleted successfully!");
+      setError('');
+      fetchData();
+    } catch (err) {
+      setError(err.response?.data?.error || 'Failed to delete match.');
+      setSuccess('');
     }
   };
 
@@ -254,9 +267,14 @@ const MatchManager = () => {
                               </span>
                            </td>
                            <td className="px-4 py-4 text-center">
-                              <button onClick={() => openManager(m)} className="bg-slate-900 text-white hover:bg-slate-800 text-xs font-black uppercase px-3 py-1.5 rounded transition-colors tracking-wider whitespace-nowrap">
-                                 Launch Panel
-                              </button>
+                              <div className="flex items-center justify-center gap-2">
+                                 <button onClick={() => openManager(m)} className="bg-slate-900 text-white hover:bg-slate-800 text-xs font-black uppercase px-3 py-1.5 rounded transition-colors tracking-wider whitespace-nowrap">
+                                    Launch Panel
+                                 </button>
+                                 <button onClick={() => handleDeleteMatch(m.match_id)} className="bg-red-600 text-white hover:bg-red-700 text-xs font-black uppercase px-3 py-1.5 rounded transition-colors tracking-wider flex items-center gap-1">
+                                    <Trash2 className="w-3.5 h-3.5" /> Delete
+                                 </button>
+                               </div>
                            </td>
                          </tr>
                        ))}
